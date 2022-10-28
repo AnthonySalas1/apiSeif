@@ -19,6 +19,7 @@ class User(models.Model):
     )
 
     dni = models.IntegerField(default='12345678')
+    passwd = models.CharField(max_length=30, blank=True)
     name = models.CharField(max_length=100)
     lastname = models.CharField(max_length=100)
     age = models.IntegerField()

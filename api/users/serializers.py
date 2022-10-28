@@ -4,6 +4,7 @@ from .models import User, Unidad
 
 class UserSerializer(serializers.Serializer):
     dni = serializers.IntegerField()
+    passwd = serializers.CharField(max_length=100)
     name = serializers.CharField(max_length=100)
     lastname = serializers.CharField(max_length=100)
     age = serializers.IntegerField()
@@ -36,6 +37,7 @@ class UnidadSerializer(serializers.Serializer):
         Update and return an existing `Serie` instance, given the validated data.
         """
         instance.dni = validated_data.get('dni', instance.dni)
+        instance.passwd = validated_data.get('passwd', instance.passwd)
         instance.name = validated_data.get('name', instance.name)
         instance.lastname = validated_data.get('lastname', instance.lastname)
         instance.age = validated_data.get('age', instance.age)
