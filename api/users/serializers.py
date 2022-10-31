@@ -1,17 +1,20 @@
+
 from unittest.util import _MAX_LENGTH
 from rest_framework import serializers
 from .models import User, Unidad
 
+
 class UserSerializer(serializers.Serializer):
     dni = serializers.IntegerField()
     passwd = serializers.CharField(max_length=100)
-    name = serializers.CharField(max_length=100)
-    lastname = serializers.CharField(max_length=100)
-    age = serializers.IntegerField()
-    category = serializers.ChoiceField(choices=User.CATEGORIES_CHOICES)
-    imagen = serializers.CharField(max_length=200)
+    name = serializers.CharField(max_length=100, allow_null=True)
+    lastname = serializers.CharField(max_length=100, allow_null=True)
+    age = serializers.IntegerField(allow_null=True)
+    category = serializers.ChoiceField(allow_null=True,
+        choices=User.CATEGORIES_CHOICES)
+    imagen = serializers.CharField(allow_null=True, max_length=200)
     email = serializers.EmailField(max_length=40)
-    release_date = serializers.DateField()
+    release_date = serializers.DateField(allow_null=True)
     
 
 class UnidadSerializer(serializers.Serializer):
