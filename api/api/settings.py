@@ -22,8 +22,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-orr8*(1%((rrjgu35ngp3(8s2ywba8h-%e^vkslpj$d@5(p(w1'
-CSRF_TRUSTED_ORIGINS = [
-    'https://cloudinserver.live', 'https://cloudinserver.live']
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+CSRF_TRUSTED_ORIGINS = ['157.230.209.20', 'https://cloudingserver.live','http://cloudingserver.live']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
