@@ -17,7 +17,7 @@ class JSONResponse(HttpResponse):
         super(JSONResponse, self).__init__(content, **kwargs)
 
 
-
+@csrf_exempt
 def user_list(request):
     """
     List all code serie, or create a new serie.
@@ -35,6 +35,7 @@ def user_list(request):
             return JSONResponse(serializer.data, status=201)
         return JSONResponse(serializer.errors, status=400)
 
+@csrf_exempt
 def user_detail(request, pk):
     """
     Retrieve, update or delete a serie.
@@ -61,6 +62,7 @@ def user_detail(request, pk):
         return HttpResponse(status=204)
 
 
+@csrf_exempt
 def unidad_list(request):
     """
     List all code serie, or create a new serie.
@@ -79,7 +81,7 @@ def unidad_list(request):
         return JSONResponse(serializer.errors, status=400)
 
 
-
+@csrf_exempt
 def unidad_detail(request, pk):
     """
     Retrieve, update or delete a serie.
